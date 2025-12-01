@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #213547;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
+a:hover {
+  background-color: #10b981;
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+td > a {
+  font-size: 1.5em;
+  line-height: 1.1;
+  color: #10b981;
+  background-color: transparent;
+}
+td > a:hover {
+  font-size: 1.5em;
+  line-height: 1.1;
+  color: black;
+  background-color: transparent;
+}
+nav button:hover {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #ffffff;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #10b981;
+}
+
+button a {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f97316;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+button:hover {
+  background-color: #10b981;
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto #3b82f6;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+/* CENTERED LIFELINE WITH FIXED WIDTH */
+.lifeline-rli-bounding-box {
+  width: 80% !important; /* Adjust for desired width (not full, but centered) */
+  max-width: 600px; /* Max limit for large screens */
+  margin: 0 auto; /* Center horizontally */
+  overflow: hidden;
+}
+
+.lifeline-indicator {
+  width: 100%;
+  text-align: center; /* Center align content */
+}
+
+.lifeline-indicator svg {
+  width: 100% !important;
+  height: auto !important;
+  viewbox: "0 0 350 50"; /* Fixed: camelCase to ViewBox in CSS */
+  preserveaspectratio: "meet"; /* Fixed: camelCase */
+}
+
+path.rli-lifeline {
+  stroke-width: 4 !important;
+  stroke-dasharray: 2000 50 !important;
+  animation: lifeline-dash 3s linear infinite,
+    lifeline-color 12s linear infinite !important;
+}
+
+/* Left to Right Dash Animation */
+@keyframes lifeline-dash {
+  from {
+    stroke-dashoffset: 2000; /* Start off-screen left */
+  }
+  to {
+    stroke-dashoffset: -2000; /* End off-screen right */
+  }
+}
+
+/* Color Change (Optional) */
+@keyframes lifeline-color {
+  0% {
+    stroke: #f97316;
+  } /* Orange start */
+  33% {
+    stroke: #10b981;
+  } /* Green */
+  66% {
+    stroke: #3b82f6;
+  } /* Blue */
+  100% {
+    stroke: #f97316;
+  } /* Back to orange */
+}
