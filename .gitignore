@@ -1,5 +1,5 @@
-eventhub-frontend/node_modules/
-eventhub-frontend/.env
+node_modules/
+.env
 npm-debug.log
 .DS_Store
 php-api/vendor/
