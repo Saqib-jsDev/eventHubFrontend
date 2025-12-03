@@ -9,7 +9,9 @@ export default function EventForm({ fnDispatch }) {
   const { loading, events } = useSelector((state) => state.events);
   const { user } = useSelector((state) => state.auth);
 
-  const currentEvent = events.find((event) => event.id === Number(params.id));
+  const currentEvent = Array.isArray(events)
+    ? events.find((event) => event.id === Number(params.id))
+    : null;
   const dateRef = useRef(null);
 
   const today = new Date();
@@ -54,9 +56,9 @@ export default function EventForm({ fnDispatch }) {
     navigate(user.role === "resident" ? "/resident" : "admin");
   };
   useEffect(() => {
-    const selectedEvent = events.find(
-      (event) => event.id === Number(params.id)
-    );
+    const selectedEvent = Array.isArray(events)
+      ? events.find((event) => event.id === Number(params.id))
+      : null;
     setForm(selectedEvent);
     dispatch(getEvents());
   }, [params, dispatch]);
