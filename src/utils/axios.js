@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://novaads.digital/",
+  baseURL: "https://saqib.novaads.digital/",
 });
 
 http: api.interceptors.request.use((config) => {
